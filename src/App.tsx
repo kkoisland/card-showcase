@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Card from "./Card";
 
 const App = () => {
 	const [theme, setTheme] = useState("light");
@@ -7,15 +8,18 @@ const App = () => {
 	}, [theme]);
 
 	return (
-		<div className="flex justify-end">
-			<button
-				type="button"
-				onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-				className="px-3 py-2 cursor-pointer"
-			>
-				{theme === "light" ? "🌙" : "☀️"}
-			</button>
-		</div>
+		<>
+			<div className="flex justify-end">
+				<button
+					type="button"
+					onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+					className="px-3 py-2 cursor-pointer"
+				>
+					{theme === "light" ? "🌙" : "☀️"}
+				</button>
+			</div>
+			<Card />
+		</>
 	);
 };
 export default App;

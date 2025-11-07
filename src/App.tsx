@@ -1,15 +1,9 @@
-import { useEffect, useState } from "react";
 import Card from "./Card";
 import Footer from "./Footer";
 
 const App = () => {
-	const [theme, setTheme] = useState("light");
 	const params = new URLSearchParams(window.location.search);
 	const src = params.get("src") ?? "";
-
-	useEffect(() => {
-		document.body.classList.toggle("dark", theme === "dark");
-	}, [theme]);
 
 	const downloadFile = (src: string) => {
 		const a = document.createElement("a");
@@ -24,19 +18,13 @@ const App = () => {
 				<button
 					type="button"
 					className="px-3 py-2 cursor-pointer"
+					title="Download"
 					onClick={(e) => {
 						e.stopPropagation();
 						downloadFile(src);
 					}}
 				>
 					⬇️
-				</button>
-				<button
-					type="button"
-					onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-					className="px-3 py-2 cursor-pointer"
-				>
-					{theme === "light" ? "🌙" : "☀️"}
 				</button>
 			</div>
 			<Card />

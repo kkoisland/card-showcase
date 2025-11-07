@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import Footer from "./Footer";
 
 const App = () => {
 	const [theme, setTheme] = useState("light");
@@ -19,6 +20,7 @@ const App = () => {
 				</button>
 			</div>
 			<Card />
+			<Footer />
 		</>
 	);
 };
